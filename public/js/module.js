@@ -1,4 +1,5 @@
-'use strict';
+// 'use strict';
+
 
 angular.module('myApp', ['ui.router', 'ngAnimate'])
   .config(function($stateProvider, $urlRouterProvider) {
@@ -21,15 +22,16 @@ angular.module('myApp', ['ui.router', 'ngAnimate'])
       if(typeof inputStr !== 'string' || !inputStr.length) return;
       console.log('inputStr:', inputStr);
 
-      // return the updated string
-      return inputStr.toLowerCase()
-      .split(' ')
-      .map(word => word[0].toUpperCase() + word.slice(1))
-      .join(' ');
-    }
-  })
-  .filter('total', function() { // potentially useful for updating totals; alternative to $scope.$watch
-    return function(nums) { // given input array
-      return nums.reduce((sum,num) => sum + num, 0); // get sum
-    }
-  })
+
+//       // return the updated string
+//       return inputStr.toLowerCase()
+//       .split(' ')
+//       .map(word => word[0].toUpperCase() + word.slice(1))
+//       .join(' ');
+//     }
+//   })
+//   .filter('total', function() { // potentially useful for updating totals; alternative to $scope.$watch
+//     return function(nums) { // given input array
+//       return nums.reduce((sum,num) => sum + num, 0); // get sum
+//     }
+//   })

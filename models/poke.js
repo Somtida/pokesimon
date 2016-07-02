@@ -15,8 +15,6 @@ var pokeSchema = new mongoose.Schema({
 });
 
 pokeSchema.statics.getAll = function() {
-    // Use create 
-    // Set up to request multiple api - ie load in SW, LotR, Marvel etc
   var obj 
 
   return Promise.all([
@@ -46,29 +44,34 @@ pokeSchema.statics.getAll = function() {
 }
 
 
-pokeSchema.statics.getFromDb = function(cb) {
+// pokeSchema.statics.getFromDb = function(cb) {
 
-  Poke.find({}, (err, data) => {
-    if(err) return cb(err)
-    cb(null, data)
-  })
-}
+//   Poke.find({}, (err, data) => {
+//     if(err) return cb(err)
+//     cb(null, data)
+//   })
+// }
 
 // 
 //Pluck 16 Pokes at random from DB
-// Needs to be converted to work with the DB object created
-// 
+// Splices the pokemon selected to avoid repetitions, but each time a new game is called, it grabs the 250 again)
 
-pokeSchema.getSixteen = (allPokes, cb) => {
+pokeSchema.statics.getSixteen = (cb) => {
   
+  Poke.find({}, (err, data) => {
+    var sixteenPokes = [];
+    for(var i = 1; i <= 16; i++) {
 
-  sixteenPokes = [];
-  for (var i = 1; i <= 16; i++) {
-    randomIndex = Math.floor(Math.random() * allPokes.length + 1)
-    sixteenPokes.push(allPokes);
-    allPokes.splice(randomIndex, 1);
-  }
-  return sixteenPokes
+      var randomIndex = Math.floor(Math.random() * data[0].pokes.length)
+      sixteenPokes.push(data[0].pokes[randomIndex])
+      data[0].pokes.splice(randomIndex, 1)
+
+    }
+    if(err) return cb(err)
+      console.log(sixteenPokes.length)
+      cb(null, sixteenPokes)
+  })
+ 
 }
  
 

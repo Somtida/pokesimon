@@ -1,3 +1,43 @@
+@font-face{
+  font-family: pokemon;
+  src: url('../temp/Pokemon_Solid.ttf');
+
+}
+.biggestfont{
+  font-size: 120px;
+  color: blue;
+  text-shadow: 2px 2px #FF0000;
+  text-shadow: 4px 4px #FF0000;
+}
+.bigfont{
+  font-size: 90px;
+  color: blue;
+  /*text-shadow: 2px 2px #FF0000;*/
+  text-shadow: 7px 7px yellow;
+}
+.container{
+  margin: 0 auto;
+  text-align: center;
+}
+.poke{
+  width: 80%;
+}
+.home{
+  width: 80%;
+  padding: 40px;
+  font-family: pokemon;
+  background-color: #eee;
+  height: 600px;
+  background-image: url(/temp/homeBackground.png);
+  background-repeat: no-repeat center center fixed;
+  background-size: 100% 100%;
+}
+.playbutt{
+  color: #000;
+}
+.homeImage{
+  bottom: 0;
+}
 .imgContainer, .sprite-box {
   text-align: center;
 

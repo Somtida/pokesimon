@@ -26,8 +26,9 @@ body {
   }
 
 }
+
 .biggestfont{
-  font-size: 120px;
+  font-size: 130px;
   color: blue;
   text-shadow: 2px 2px #FF0000;
   text-shadow: 4px 4px #FF0000;
@@ -59,21 +60,40 @@ body {
   -webkit-background-size: 100% 100%;
   text-align: center;
 }
+.timeBox{
+  border: 1px solid #000;
+  font-size: 120px;
+}
 
 .pokeButton {
   height: 20%;
 }
+.pokeGameButton{
+  height: 70px;
+}
+.pokeGameButton:hover{
+  -webkit-animation: bounce 1s;
+  animation: bounce 1s;
+}
 
+.smallfront{
+  color: red;
+  font-size: 30px;
+  text-shadow: 3px 3px yellow;
+}
+.game a{
+  text-decoration: none;
+
+}
 .game{
   font-family: pokemon;
-  text-shadow: 2px 2px blue;
   color: yellow;
-  font-size: 50px;
-  padding: 30px;
+  padding-left: 300px;
+  padding-right: 200px;
   background-color: #fff;
-  height: 600px;
-  width: 80%;
-  /*background-image: url(/temp/gameBackground.jpg);*/
+  height: 100vh;
+  width: 100%;
+  background-image: url(/temp/gameBackground.jpg);
   background-repeat: no-repeat center center fixed;
   background-size: 100% 100%;
 }
@@ -86,7 +106,6 @@ body {
   border-radius: 5px;
   width: 120px;
   height: 120px;
-
 }
 .imgContainer {
   border: 1px solid #000;

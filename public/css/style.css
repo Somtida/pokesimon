@@ -12,7 +12,6 @@
 .bigfont{
   font-size: 90px;
   color: blue;
-  /*text-shadow: 2px 2px #FF0000;*/
   text-shadow: 7px 7px yellow;
 }
 .container{
@@ -35,8 +34,21 @@
 .playbutt{
   color: #000;
 }
-.homeImage{
-  bottom: 0;
+.game{
+  font-family: pokemon;
+  text-shadow: 2px 2px blue;
+  color: yellow;
+  font-size: 50px;
+  padding: 30px;
+  background-color: #fff;
+  height: 600px;
+  width: 80%;
+  background-image: url(/temp/gameBackground.jpg);
+  background-repeat: no-repeat center center fixed;
+  background-size: 100% 100%;
+}
+.imageBox{
+  background-color: #fff;
 }
 .imgContainer, .sprite-box {
   text-align: center;

@@ -13,6 +13,7 @@ angular.module('myApp', ['ui.router', 'ngAnimate'])
     $urlRouterProvider.otherwise('/');
 
   })
+  
 // create a new filter -- titlecase filter
 // everytime a value changes that uses this filter, this function will get triggered
 // and it'll also trigger right away upon initial page load

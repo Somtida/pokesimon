@@ -2,35 +2,45 @@
 
 
 angular.module('myApp')
-.controller('mainCtrl', function() {
+.controller('mainCtrl', function($scope, Poke) {
   console.log('mainCtrl!');
+
+  Poke.getSixteen()
+      .then(res=>{
+        console.log("res: ",res);
+        $scope.sprites = res.data;
+      })
+      .catch(err=>{
+        console.log("err: ",err);
+      })
+      
 })
 .controller('gameCtrl', function($scope, $timeout) {
   console.log('gameCtrl!');
-  $scope.sprites = [{
-    id: 1,
-    name: "bulbasaur",
-    imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
-    active: false
-  },
-  {
-    id: 2,
-    name: "bulbasaur",
-    imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
-    active: false
-  },
-  {
-    id: 3,
-    name: "bulbasaur",
-    imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
-    active: false
-  },
-  {
-    id: 4,
-    name: "bulbasaur",
-    imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
-    active: false
-  }]
+  // $scope.sprites = [{
+  //   id: 1,
+  //   name: "bulbasaur",
+  //   imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
+  //   active: false
+  // },
+  // {
+  //   id: 2,
+  //   name: "bulbasaur",
+  //   imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
+  //   active: false
+  // },
+  // {
+  //   id: 3,
+  //   name: "bulbasaur",
+  //   imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
+  //   active: false
+  // },
+  // {
+  //   id: 4,
+  //   name: "bulbasaur",
+  //   imgUrl: "http://pokeapi.co/media/img/1383571573.78.png",
+  //   active: false
+  // }]
 
 
   $scope.guess = (index) => {
@@ -67,6 +77,7 @@ angular.module('myApp')
     $scope.sequence(count);
 
   }
+
 
 
 })

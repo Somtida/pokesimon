@@ -1,6 +1,6 @@
 'use strict';
 
-const uuid = require('uuid');
+
 const moment = require('moment');
 const async = require('async');
 const request = require('request')

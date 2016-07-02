@@ -6,6 +6,26 @@ body {
   src: url('../temp/Pokemon_Solid.ttf');
 
 }
+@media screen and (max-width: 400px) {
+  .homeImage img {
+    height: 40%;
+  }
+
+  .homeImage .focus {
+    height: 50%;
+  }
+  .home{
+    width: 80%;
+    height: 100vh;
+    padding: 40px;
+    font-family: pokemon;
+    background-color: #000;
+    background: url(/temp/homeBackground.png) no-repeat center center fixed;
+    -webkit-background-size: 80% 80%;
+    text-align: center;
+  }
+
+}
 .biggestfont{
   font-size: 120px;
   color: blue;

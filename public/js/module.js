@@ -16,11 +16,11 @@ angular.module('myApp', ['ui.router', 'ngAnimate'])
 // create a new filter -- titlecase filter
 // everytime a value changes that uses this filter, this function will get triggered
 // and it'll also trigger right away upon initial page load
-  .filter('titlecase', function($scope) { // give it the standard dependency-injecting function
-    // return the filter function
-    return function(inputStr) {
-      if(typeof inputStr !== 'string' || !inputStr.length) return;
-      console.log('inputStr:', inputStr);
+  // .filter('titlecase', function($scope) { // give it the standard dependency-injecting function
+  //   // return the filter function
+  //   return function(inputStr) {
+      // if(typeof inputStr !== 'string' || !inputStr.length) return;
+      // console.log('inputStr:', inputStr);
 
 
 //       // return the updated string

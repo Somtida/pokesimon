@@ -9,10 +9,6 @@
     </a>
     <br>
     <br>
-    <pre>
-
-      {{sprites | json}}
-    </pre>
     <div class="row">
       <div class="col-xs-8">
         <div class="row text-center" ng-repeat="sprite in sprites track by $index " ng-if="$index%4==0">
@@ -20,7 +16,8 @@
             ng-repeat="i in [$index,$index+1,$index+2,$index+3]">
             <div class="imgContainer imageBox" id=`b${i}` value=i ng-click="guess(i)" ng-class="sprites[i].active ? 'animated bounce' : ''">
               <a ng-disabled="disabled">
-                <img src={{sprites[i].imgUrl}} alt="{{sprites[i].name}}">
+                <img src={{"http://pokeapi.co"+sprites[i].image}} alt="{{sprites[i].pokemon.name}}">
+                <!-- <img src={{sprites[i].imgUrl}} alt="{{sprites[i].name}}"> -->
               </a>
             </div>
           </div>

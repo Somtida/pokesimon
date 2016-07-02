@@ -1,3 +1,6 @@
+body {
+  background-color:#fff;
+}
 @font-face{
   font-family: pokemon;
   src: url('../temp/Pokemon_Solid.ttf');
@@ -8,6 +11,7 @@
   color: blue;
   text-shadow: 2px 2px #FF0000;
   text-shadow: 4px 4px #FF0000;
+  text-align: center;
 }
 .bigfont{
   font-size: 90px;
@@ -18,22 +22,28 @@
   margin: 0 auto;
   text-align: center;
 }
-.poke{
-  width: 80%;
+.homeImage img {
+  height: 300px;
+}
+
+.homeImage .focus {
+  height: 500px;
 }
 .home{
-  width: 80%;
+  width: 100%;
+  height: 100vh;
   padding: 40px;
   font-family: pokemon;
-  background-color: #eee;
-  height: 600px;
-  background-image: url(/temp/homeBackground.png);
-  background-repeat: no-repeat center center fixed;
-  background-size: 100% 100%;
+  background-color: #000;
+  background: url(/temp/homeBackground.png) no-repeat center center fixed;
+  -webkit-background-size: 100% 100%;
+  text-align: center;
 }
-.playbutt{
-  color: #000;
+
+.pokeButton {
+  height: 20%;
 }
+
 .game{
   font-family: pokemon;
   text-shadow: 2px 2px blue;
@@ -43,7 +53,7 @@
   background-color: #fff;
   height: 600px;
   width: 80%;
-  background-image: url(/temp/gameBackground.jpg);
+  /*background-image: url(/temp/gameBackground.jpg);*/
   background-repeat: no-repeat center center fixed;
   background-size: 100% 100%;
 }
@@ -67,19 +77,3 @@
   width: 100px;
   height: 100px;
 }
-/*test*/
-.css-class-add, .css-class-remove {
-  transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 0.5s;
-}
-
-.css-class,
-.css-class-add.css-class-add-active {
-  color: red;
-  font-size:3em;
-}
-
-.css-class-remove.css-class-remove-active {
-  font-size:1.0em;
-  color: black;
-}
-/*-----*/

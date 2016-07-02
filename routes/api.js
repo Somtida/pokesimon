@@ -4,7 +4,7 @@ const express = require('express');
 
 let router = express.Router();
 
-router.use('/whatevers', require('./whatevers'));
+router.use('/pokes', require('./pokes'));
 // add add'tl routers here
 
 module.exports = router;

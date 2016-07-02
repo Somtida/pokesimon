@@ -42,7 +42,7 @@ app.use('/api', require('./routes/api'))
 ////////////////
 
 app.get('/', (req, res) => {
-  res.render('index', {title: 'Project Title'});
+  res.render('index', {title: 'Poke-Simon'});
 });
 
 // catch 404 and forward to error handler

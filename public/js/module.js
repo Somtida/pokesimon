@@ -1,10 +1,16 @@
 'use strict';
 
-angular.module('myApp', ['ui.router'])
+angular.module('myApp', ['ui.router', 'ngAnimate'])
   .config(function($stateProvider, $urlRouterProvider) {
     $stateProvider
       .state('home', {url: '/', templateUrl: '/html/home.html'})
+      .state('game', {
+        url: '/game',
+        templateUrl: '/html/game.html',
+        controller: 'gameCtrl'
+      })
     $urlRouterProvider.otherwise('/');
+
   })
 // create a new filter -- titlecase filter
 // everytime a value changes that uses this filter, this function will get triggered

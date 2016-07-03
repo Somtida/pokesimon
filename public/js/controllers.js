@@ -22,13 +22,12 @@ angular.module('myApp')
   $scope.$watch(function() {
     return angular.toJson($scope.level);
   }, function() {
-    $scope.message = `Current level: ${$scope.level}. Keep at it to catch 'em all.'`
+    $scope.message = `Current level: ${$scope.level}`
   })
   $scope.guessArr = [];
   $scope.playerArr = [];
   $scope.guess = (index) => {
     if (!$scope.playerArr.length) { return swal("You haven't started!", "Click the pokeball to start", "warning")}
-    console.log($scope.guessArr);
     $scope.guessArr.push(index);
 
     if (index === $scope.playerArr[$scope.i] && $scope.guessArr.length === $scope.playerArr.length) {

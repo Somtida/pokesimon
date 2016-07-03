@@ -28,6 +28,10 @@ body {
     text-align: center;
   }
 }
+.startGame{
+  color: #fff;
+  font-size: 25px;
+}
 .biggestfont{
   font-size: 130px;
   color: blue;
@@ -70,9 +74,13 @@ body {
 .pokeGameButton{
   height: 70px;
 }
-.pokeGameButton:hover{
-  -webkit-animation: bounce 1s;
-  animation: bounce 1s;
+/*.pokeGameButton:hover{
+  -webkit-animation: flash 1s;
+  animation: flash 1s;
+}*/
+.pokeGameButton:active{
+  -webkit-animation: flash 1s;
+  animation: flash 1s;
 }
 .smallfront{
   color: red;
@@ -90,7 +98,7 @@ body {
   font-family: pokemon;
   color: yellow;
   background-color: #fff;
-  height: 800px;
+  height: 100vh;
   width: 100%;
   background-image: url(/temp/gameBackground.jpg);
   background-repeat: no-repeat center center fixed;
@@ -116,12 +124,12 @@ body {
   height: 100px;
 }
 .imageBox:hover, .imgContainer:hover{
-  border: 1px solid red;
-  -webkit-animation: flash 1s;
-  animation: flash 1s;
+  border: 3px solid green;
+  /*-webkit-animation: flash 1s;
+  animation: flash 1s;*/
 }
-.imageBox:hover, .imgContainer:active{
-  border: 1px solid green;
+.imageBox:active, .imgContainer:active{
+  border: 1px solid blue;
   -webkit-animation: pulse 1s;
   animation: pulse 1s;
 }

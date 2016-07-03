@@ -1,16 +1,19 @@
 body {
   background-color:#fff;
 }
+.feedbackMessage {
+  margin-top: 30px;
+  color: red;
+  font-size: 20px;
+}
 @font-face{
   font-family: pokemon;
   src: url('../temp/Pokemon_Solid.ttf');
-
 }
 @media screen and (max-width: 400px) {
   .homeImage img {
     height: 40%;
   }
-
   .homeImage .focus {
     height: 50%;
   }
@@ -24,9 +27,7 @@ body {
     -webkit-background-size: 80% 80%;
     text-align: center;
   }
-
 }
-
 .biggestfont{
   font-size: 130px;
   color: blue;
@@ -46,7 +47,6 @@ body {
 .homeImage img {
   height: 300px;
 }
-
 .homeImage .focus {
   height: 500px;
 }
@@ -64,7 +64,6 @@ body {
   border: 1px solid #000;
   font-size: 120px;
 }
-
 .pokeButton {
   height: 20%;
 }
@@ -75,7 +74,6 @@ body {
   -webkit-animation: bounce 1s;
   animation: bounce 1s;
 }
-
 .smallfront{
   color: red;
   font-size: 30px;
@@ -83,15 +81,16 @@ body {
 }
 .game a{
   text-decoration: none;
-
+}
+.gameArea{
+  padding-left: 350px;
+  padding-right: 200px;
 }
 .game{
   font-family: pokemon;
   color: yellow;
-  padding-left: 300px;
-  padding-right: 200px;
   background-color: #fff;
-  height: 100vh;
+  height: 800px;
   width: 100%;
   background-image: url(/temp/gameBackground.jpg);
   background-repeat: no-repeat center center fixed;
@@ -99,10 +98,11 @@ body {
 }
 .imageBox{
   background-color: #fff;
+  cursor: pointer;
 }
 .imgContainer, .sprite-box {
   text-align: center;
-
+  cursor: pointer;
   border-radius: 5px;
   width: 120px;
   height: 120px;
@@ -110,9 +110,18 @@ body {
 .imgContainer {
   border: 1px solid #000;
   box-shadow: 10px 10px 5px #eee;
-
 }
 .imgContainer img{
   width: 100px;
   height: 100px;
+}
+.imageBox:hover, .imgContainer:hover{
+  border: 1px solid red;
+  -webkit-animation: flash 1s;
+  animation: flash 1s;
+}
+.imageBox:hover, .imgContainer:active{
+  border: 1px solid green;
+  -webkit-animation: pulse 1s;
+  animation: pulse 1s;
 }

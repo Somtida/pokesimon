@@ -6,49 +6,38 @@ angular.module('myApp')
   console.log('mainCtrl!');
 
   Poke.getSixteen()
-      .then(res=>{
-        console.log("res: ",res);
-        $scope.sprites = res.data;
-      })
-      .catch(err=>{
-        console.log("err: ",err);
-      })
+  .then(res=>{
+    console.log("res: ",res);
+    $scope.sprites = res.data;
+  })
+  .catch(err=>{
+    console.log("err: ",err);
+  })
 
 })
-.controller('gameCtrl', function($scope, $timeout) {
+.controller('gameCtrl', function($scope, $timeout, $state) {
   console.log('gameCtrl!');
 
-
+  $scope.level = $scope.level || 1;
+  $scope.$watch(function() {
+    return angular.toJson($scope.level);
+  }, function() {
+    $scope.message = `Current level: ${$scope.level}. Keep at it to catch 'em all.'`
+  })
   $scope.guessArr = [];
   $scope.playerArr = [];
   $scope.guess = (index) => {
+    if (!$scope.playerArr.length) { return swal("You haven't started!", "Click the pokeball to start", "warning")}
+    console.log($scope.guessArr);
     $scope.guessArr.push(index);
 
     if (index === $scope.playerArr[$scope.i] && $scope.guessArr.length === $scope.playerArr.length) {
-      swal({
-        title: "You won this level!",
-        text: "One up.",
-        type: "success",
-        showCancelButton: true,
-        confirmButtonColor: '#DD6B55',
-        confirmButtonText: 'Start Next Level',
-        cancelButtonText: "Cancel!",
-        closeOnConfirm: true,
-        closeOnCancel: false
-      },
-      function(isConfirm){
-        if (isConfirm){
-          $scope.guessArr = [];
-          $scope.correct = true;
-          $scope.level++;
-          $scope.i = 0;
-          $scope.start();
-        } else {
-          swal("Aw, alright.", "Come back soon!");
-        }
-      });
+      $scope.guessArr = [];
+      $scope.correct = true;
+      $scope.level++;
+      $scope.i = 0;
+      $scope.start();
     } else if (index === $scope.playerArr[$scope.i]) {
-      console.log("Good job!");
       $scope.i++;
       $scope.correct = true;
     } else {
@@ -61,7 +50,7 @@ angular.module('myApp')
         confirmButtonText: 'Reset Game',
         cancelButtonText: "I Give Up",
         closeOnConfirm: true,
-        closeOnCancel: false
+        closeOnCancel: true
       },
       function(isConfirm){
         if (isConfirm){
@@ -72,63 +61,59 @@ angular.module('myApp')
           $scope.correct = false;
           $scope.start();
         } else {
-          swal("Aw, alright.", "Come back soon!");
+          $scope.guessArr = [];
+          $scope.level = 1;
+          $scope.i = 0;
+          $scope.playerArr = [];
+          $scope.correct = false;
+          $state.go('home');
         }
       });
     };
-  console.log("index: ",index);
-}
-
-$scope.start = () => {
-  $scope.i = 0;
-  $scope.level = $scope.level || 1;
-
-  function random() {
-    return Math.floor(Math.random() * $scope.sprites.length);
-  };
-
-  if ($scope.correct) {
-    $scope.playerArr.push(random());
-  } else {
-    $scope.playerArr = [random()];
   }
 
-  $scope.activate = (element) => {
-    element.active = true;
-    console.log('element.active', element.active);
-    $timeout(
-      function() {
-        element.active = false;
-        console.log('element.active', element.active);
-      }, 600);
-    }
+  $scope.start = () => {
+    $scope.i = 0;
 
-    $scope.count = 0;
-    $scope.sequence = (count) => {
-      $scope.disabled = true;
-      $scope.activate($scope.sprites[$scope.playerArr[count]]);
-      // console.log('$scope.count:', $scope.count);
-      if (count < $scope.playerArr.length - 1) {
-        $timeout(function() {
-          $scope.sequence(count);
-        }, 800);
-      } else {
-        $scope.disabled = false;
-      }
-      count++;
-    }
-    if ($scope.playerArr.length > 1) {
-      $scope.activate($scope.sprites[$scope.playerArr[0]]);
-      $timeout($scope.sequence($scope.count), 800);
+    function random() {
+      return Math.floor(Math.random() * $scope.sprites.length);
+    };
+
+    if ($scope.correct) {
+      $scope.playerArr.push(random());
     } else {
-      $scope.sequence($scope.count);
+      $scope.playerArr = [random()];
     }
 
-    console.log('$scope.playerArr:', $scope.playerArr);
-    console.log('$scope.guessArr:', $scope.guessArr);
-    console.log('$scope.i:', $scope.i);
-    console.log('$scope.level:', $scope.level);
-  }
+    $scope.activate = (element) => {
+      element.active = true;
+      $timeout(
+        function() {
+          element.active = false;
+        }, 600);
+      }
+
+      $scope.count = 0;
+      $scope.sequence = (count) => {
+        $scope.disabled = true;
+        $scope.activate($scope.sprites[$scope.playerArr[count]]);
+        // console.log('$scope.count:', $scope.count);
+        if (count < $scope.playerArr.length - 1) {
+          $timeout(function() {
+            $scope.sequence(count);
+          }, 800);
+        } else {
+          $scope.disabled = false;
+        }
+        count++;
+      }
+      if ($scope.playerArr.length > 1) {
+        $scope.activate($scope.sprites[$scope.playerArr[0]]);
+        $timeout($scope.sequence($scope.count), 800);
+      } else {
+        $scope.sequence($scope.count);
+      }
+    }
 
 
-})
+  })

@@ -1,34 +1,28 @@
 <div class="container text-center game">
   <div class="text-center animated flip">
-      <span class="biggestfont">Poke<span class="bigfont">Si</span>mon</span>
-    </div>
-    <a ng-click='start()'>
-      <!-- <span class="animated infinite fadeInLeft smallfont">start>>>> </span> -->
-      <img src="/temp/pokeball.png" alt="pokeball" class="pokeGameButton">
-      <!-- <span class="animated infinite fadeInLeft smallfont"> <<<<< Start</span> -->
-    </a>
-    <br>
-    <br>
-    <div class="row">
-      <div class="col-xs-8">
-        <div class="row text-center" ng-repeat="sprite in sprites track by $index " ng-if="$index%4==0">
-            <div class="col-xs-3 sprite-box"
-            ng-repeat="i in [$index,$index+1,$index+2,$index+3]">
-            <div class="imgContainer imageBox" id=`b${i}` value=i ng-click="guess(i)" ng-class="sprites[i].active ? 'animated bounce' : ''">
-              <a ng-disabled="disabled">
-                <img src={{"http://pokeapi.co"+sprites[i].image}} alt="{{sprites[i].pokemon.name}}">
-                <!-- <img src={{sprites[i].imgUrl}} alt="{{sprites[i].name}}"> -->
-              </a>
-            </div>
-          </div>
+    <span class="biggestfont">Poke<span class="bigfont">Si</span>mon</span>
+  </div>
+  <a ng-click='start()'>
+    <!-- <span class="animated infinite fadeInLeft smallfont">start>>>> </span> -->
+    <img src="/temp/pokeball.png" alt="pokeball" class="pokeGameButton">
+    <!-- <span class="animated infinite fadeInLeft smallfont"> <<<<< Start</span> -->
+  </a>
+  <br>
+  <br>
+  <div class="container">
+    <div class="gameArea">
+      <div class="row text-center" ng-repeat="sprite in sprites track by $index " ng-if="$index%4==0">
+        <div class="col-xs-3 sprite-box"
+        ng-repeat="i in [$index,$index+1,$index+2,$index+3]">
+        <div class="imgContainer imageBox" id=`b${i}` value=i ng-click="guess(i)" ng-class="sprites[i].active ? 'animated bounce' : ''">
+          <a ng-disabled="disabled">
+            <img src={{"http://pokeapi.co"+sprites[i].image}} alt="{{sprites[i].pokemon.name}}">
+            <!-- <img src={{sprites[i].imgUrl}} alt="{{sprites[i].name}}"> -->
+          </a>
         </div>
       </div>
-      <div class="col-xs-4 timeBox">
-      1
-      </div>
     </div>
-
-
-
-
+    <div class='feedbackMessage'>{{ message }}</div>
+  </div>
+</div>
 </div>
